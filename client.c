@@ -1,18 +1,17 @@
 #include "minitalk.h"
-#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
-	size_t		i;
+	size_t	i;
+	size_t	out;
 	int		neg;
-	size_t		out;
 
 	i = 0;
 	neg = 1;
 	out = 0;
-	while (str[i] == '\t' || str[i] == '\n' ||
-			str[i] == '\v' || str[i] == '\f' ||
-			str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\f'
+		|| str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -28,9 +27,9 @@ int	ft_atoi(const char *str)
 	return (out * neg);
 }
 
-void send_char(int pid, unsigned char c)
+void	send_char(int pid, unsigned char c)
 {
-	unsigned char counter;
+	unsigned char	counter;
 
 	counter = 128;
 	while (counter)
@@ -56,7 +55,7 @@ void send_char(int pid, unsigned char c)
 	}
 }
 
-void send_pid(int pid, int num)
+void	send_pid(int pid, int num)
 {
 	char	*numstr;
 
@@ -68,16 +67,16 @@ void send_pid(int pid, int num)
 	}
 }
 
-void success(int sig)
+void	success(int sig)
 {
 	(void)sig;
 	write(1, "Server received message successfully.\n", 38);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int pid;
-	char *msg;
+	int		pid;
+	char	*msg;
 
 	if (argc != 3)
 	{

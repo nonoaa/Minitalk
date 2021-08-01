@@ -24,13 +24,14 @@ static int	num_length(int n)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*out;
 	int			len;
 
 	len = num_length(n);
-	if (!(out = (char *)malloc(sizeof(char) * (len + 1))))
+	out = (char *)malloc(sizeof(char) * (len + 1));
+	if (!out)
 		return (0);
 	out[len--] = '\0';
 	if (n < 0)
