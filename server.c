@@ -65,6 +65,6 @@ int	main(void)
 		exit(1);
 	}
 	while (1)
-		pause();
+		;
 	return (0);
 }
