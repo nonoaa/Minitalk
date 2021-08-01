@@ -6,7 +6,7 @@
 /*   By: byahn <byahn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 17:31:32 by byahn             #+#    #+#             */
-/*   Updated: 2021/08/01 17:31:41 by byahn            ###   ########.fr       */
+/*   Updated: 2021/08/01 17:50:14 by byahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	send_char(int pid, unsigned char c)
 		{
 			if (kill(pid, SIGUSR1) == -1)
 			{
-				write(1, "PID error", 9);
+				write(1, "PID error.\n", 11);
 				exit(1);
 			}
 		}
@@ -58,7 +58,7 @@ void	send_char(int pid, unsigned char c)
 		{
 			if (kill(pid, SIGUSR2) == -1)
 			{
-				write(1, "PID error", 9);
+				write(1, "PID error.\n", 11);
 				exit(1);
 			}
 		}
@@ -95,7 +95,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		write(1, "Parameter error.", 16);
+		write(1, "Parameter error.\n", 16);
 		return (0);
 	}
 	pid = ft_atoi(argv[1]);
