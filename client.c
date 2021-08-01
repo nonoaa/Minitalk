@@ -58,13 +58,16 @@ void	send_char(int pid, unsigned char c)
 void	send_pid(int pid, int num)
 {
 	char	*numstr;
+	int		i;
 
 	numstr = ft_itoa(num);
-	while (*numstr)
+	i = 0;
+	while (numstr[i])
 	{
-		send_char(pid, *numstr);
-		numstr++;
+		send_char(pid, numstr[i]);
+		i++;
 	}
+	free(numstr);
 }
 
 void	success(int sig)
